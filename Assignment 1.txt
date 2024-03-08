@@ -1,0 +1,235 @@
+Concepts of Operating System
+Assignment 1
+---------------------------------
+Problem 1:
+---------------------------------
+a) Navigate and List:
+	a. Start by navigating to your home directory and list its contents. Then, move into a
+	directory named "LinuxAssignment" if it exists; otherwise, create it..
+	Ans- mkdir LinuxAssignment
+
+b) File Management:
+	a. Inside the "LinuxAssignment" directory, create a new file named "file1.txt". Display its
+	contents.
+	Ans-cat > file1.txt Hello World
+
+c) Directory Management:
+	a. Create a new directory named "docs" inside the "LinuxAssignment" directory.
+	Ans- mkdir docs
+d) Copy and Move Files:
+	a. Copy the "file1.txt" file into the "docs" directory and rename it to "file2.txt".
+	Ans - cp file1.txt docs
+
+e) Permissions and Ownership:
+	a. Change the permissions of "file2.txt" to allow read, write, and execute permissions for
+	the owner and only read permissions for others. Then, change the owner of "file2.txt" to
+	the current user.
+	Ans- chmod 744 file2.txt
+
+f) Final Checklist:
+	a. Finally, list the contents of the "LinuxAssignment" directory and the root directory to
+	ensure that all operations were performed correctly.
+	Ans- ls /
+
+g) File Searching:
+	a. Search for all files with the extension ".txt" in the current directory and its subdirectories.
+	Ans- find . -name "*.txt"
+	
+	b. Display lines containing a specific word in a file (provide a file name and the specific
+	word to search).
+	Ans-grep "Hello" file2.txt
+	Hello World
+
+h) System Information:
+	a. Display the current system date and time.
+	Ans-date, time
+
+i) Networking:
+	a. Display the IP address of the system.
+	Ans- ifconfig
+	
+	b. Ping a remote server to check connectivity (provide a remote server address to ping).
+	Ans- ping 127.0.0.1
+
+j) File Compression:
+	a. Compress the "docs" directory into a zip file.
+	Ans- zip -r docs.zip docs
+
+	b. Extract the contents of the zip file into a new directory.
+	Ans- unzip docs.zip -d New
+
+k) File Editing:
+	a. Open the "file1.txt" file in a text editor and add some text to it.
+	Ans- open vi editor vi file1
+	Esc i
+	echo "Hello CDAC_MUMBAI"
+	Esc :wq Enter
+	
+	b. Replace a specific word in the "file1.txt" file with another word (provide the original
+	word and the word to replace it with).
+	Ans - sed -i 's/CDAC_MUMBAI/CDAC/g' file1  //CDAC_MUMBAI Replace by CDAC
+
+
+
+Problem 2: 
+-------------------------------
+a. Suppose you have a file named "data.txt" containing important information. Display the first 10 lines of this file to quickly glance at its contents using a command.
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat > data.txt
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ head -10 data.txt
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+
+b. Now, to check the end of the file for any recent additions, display the last 5 lines of
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ tail -5 data.txt
+v
+w
+x
+y
+z
+
+c. In a file named "numbers.txt," there are a series of numbers. Display the first 15 lines of this file to analyze the initial data set.
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat > numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ head -15 numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+d. To focus on the last few numbers of the dataset, display the last 3 lines of "numbers.txt".	
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ tail -3 numbers.txt
+18
+19
+20
+
+e. Imagine you have a file named "input.txt" with text content. Use a command to translate
+all lowercase letters to uppercase in "input.txt" and save the modified text in a new file
+named "output.txt."
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat > input.txt
+a
+b
+c
+d
+e
+f
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat input.txt | tr [:lowe
+r:] [:upper:]
+A
+B
+C
+D
+E
+F
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ tr 'a-z' 'A-Z' <input.txt> output.txt
+
+f. In a file named "duplicate.txt," there are several lines of text, some of which are
+duplicates. Use a command to display only the unique lines from "duplicate.txt."
+Ans- 
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat > duplicate.txt
+a
+a
+b
+b
+c
+c
+d
+d
+e
+e
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ uniq duplicate.txt
+a
+b
+c
+d
+e
+
+g. In a file named "fruit.txt," there is a list of fruits, but some fruits are repeated. Use a 
+command to display each unique fruit along with the count of its occurrences in "fruit.txt."
+Ans-
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ cat > fruit.txt
+Mango
+Apple
+Kiwi
+Strawberry
+Watermelon
+Dragon
+Mango
+Kiwi
+Dragon
+Mango
+kajal_rajput@LAPTOP-4FAE98FC:~/LinuxAssignment$ sort fruit.txt | uniq -c
+      1 Apple
+      2 Dragon
+      2 Kiwi
+      3 Mango
+      1 Strawberry
+      1 Watermelon
