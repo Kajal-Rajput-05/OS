@@ -1,0 +1,373 @@
+Concepts of Operating System
+Assignment 2
+---------------------------------
+Part A 
+-------------------=-------------
+ 
+What will the following commands do? 
+ 
+ echo "Hello, World!" 
+Ans- It will print Hello, World!
+
+ name="Productive"  
+Ans- it print the name="Productive" in terminal and if we use echo then it print Productive only
+
+ touch file.txt  
+Ans- It create file.txt document
+
+ ls -a  
+Ans- shows the info about files in directory
+
+ rm file.txt  
+Ans- delete file.txt  
+
+ cp file1.txt file2.txt  
+Ans- copy the content of file1.txt to file2.txt
+
+ mv file.txt /path/to/directory/  
+Ans- it will not change directory wr want to use sudo
+
+ chmod 755 script.sh  
+Ans- change the permission of script.sh -rwxr-xr-x for owner-rwx for group-rx for other-x only
+
+ grep "pattern" file.txt  
+Ans- Display lines containing a \pattern in a file
+
+ kill PID 
+Ans- it stops the running process
+
+ mkdir mydir && cd mydir && touch file.txt && echo "Hello, World!" > file.txt && cat file.txt  
+Ans- it create mydir file, goes inside file, create file.txt, add Hello, World! in that file using cat command, display the output
+
+ ls -l | grep ".txt"  
+Ans- it shows all the file having extension .txt their info
+
+ cat file1.txt file2.txt | sort | uniq  
+Ans- it sort the data of both files and combine and display on terminal  
+
+ ls -l | grep "^d"  
+Ans- it highlight thr letter d all
+
+ grep -r "pattern" /path/to/directory/  
+Ans- it display pattern word all over and shows the path
+
+ cat file1.txt file2.txt | sort | uniq –d 
+Ans- it sort the data of both files and combine and display only repeated line 
+
+ chmod 644 file.txt 
+Ans- it change the file permission to for owner-rw for group-r for user-r
+
+ cp -r source_directory destination_directory 
+Ans- it cut the source directory and paste it to destination directory
+
+ find /path/to/search -name "*.txt" 
+Ans- find .txt file in directory
+
+ chmod u+x file.txt 
+Ans- it changes access permission 
+
+ echo $PATH 
+Ans- it shows different different path
+---------------------------------------
+Part B 
+---------------------------------------
+Identify True or False:  
+1. ls is used to list files and directories in a directory. => true
+
+2. mv is used to move files and directories.  => true
+
+3. cd is used to copy files and directories.  => false
+
+4. pwd stands for "print working directory" and displays the current directory. =>  true
+
+5. grep is used to search for patterns in files. => 
+
+6. chmod 755 file.txt gives read, write, and execute permissions to the owner, and read and execute  
+permissions to group and others.  => true
+
+7. mkdir -p directory1/directory2 creates nested directories, creating directory2 inside directory1 
+if directory1 does not exist.  => true
+
+8. rm -rf file.txt deletes a file forcefully without confirmation. => false
+  
+Identify the Incorrect Commands: 
+1. chmodx is used to change file permissions.
+Ans- Incorrect "chmod"
+
+2. cpy is used to copy files and directories.  
+Ans- Incorrect "cp"
+
+3. mkfile is used to create a new file.  
+Ans- Incorrect "mkdir"
+
+4. catx is used to concatenate files.  
+Ans- Incorrect "cat"
+
+5. rn is used to rename files. 
+Ans- Incorrect "mv"
+-------------------------------------
+Part C
+-------------------------------------
+Question 1: Write a shell script that prints "Hello, World!" to the terminal. 
+#!/bin/bash
+echo "Hello, World!"
+
+Question 2: Declare a variable named "name" and assign the value "CDAC Mumbai" to it. Print the 
+value of the variable.
+#!/bin/bash
+name="Cdac Mumbai"
+echo "$name"
+
+Question 3: Write a shell script that takes a number as input from the user and prints it. 
+#!/bin/bash
+read name
+echo "$name"
+
+Question 4: Write a shell script that performs addition of two numbers (e.g., 5 and 3) and prints the result.
+#!/bin/bash
+read num1
+read num2
+
+(( sum= $num1+$num2 ))
+echo $sum 
+
+Question 5: Write a shell script that takes a number as input and prints "Even" if it is even, otherwise prints "Odd". 
+#!/bin/bash
+read n
+if [ $(( $n % 2 )) -eq 0 ]
+then
+echo "$n is even number"
+else
+echo "$n is odd number"
+fi
+
+Question 6: Write a shell script that uses a for loop to print numbers from 1 to 5. 
+#!/bin/bash
+echo "Enter a number : "
+read n
+for ((i=1; i<=n; i++))
+do
+        echo $i
+done
+
+Question 7: Write a shell script that uses a while loop to print numbers from 1 to 5. 
+#1/bin/bash
+x=1
+while [ $x -lt 5 ]
+do
+        echo $x
+        let x+=1
+
+done
+
+Question 8: Write a shell script that checks if a file named "file.txt" exists in the current directory. If it 
+does, print "File exists", otherwise, print "File does not exist". 
+#!/bin/bash
+if [ -f "File.txt" ];
+then
+        echo "file exist"
+else
+        echo "file not exist"
+fi
+
+Question 9: Write a shell script that uses the if statement to check if a number is greater than 10 and 
+prints a message accordingly. 
+#!/bin/bash
+echo "Enter number"
+read n
+if [ $n -gt 10 ];
+then
+        echo "Number Greater than 10"
+else
+        echo "num less than 10"
+fi
+
+Question 10: Write a shell script that uses nested for loops to print a multiplication table for numbers 
+from 1 to 5. The output should be formatted nicely, with each row representing a number and each 
+column representing the multiplication result for that number. 
+#!/bin/bash
+for (( i=1; i<=5; i++))
+do
+        for (( j=1; j<=10; j++))
+                do
+                        ((T=$j*$i))
+                echo "$T"
+        done
+        echo "-----------------"
+done
+
+Question 11: Write a shell script that uses a while loop to read numbers from the user until the user enters 
+a negative number. For each positive number entered, print its square. Use the break statement to exit the 
+loop when a negative number is entered. 
+#!/bin/bash
+echo "Enter Negative No to exit"
+while :
+do
+echo "Enter No"
+        read n
+
+if [ $n -lt 0 ]
+then
+        break
+else
+        echo $(($n*$n))
+fi
+done
+
+--------------------------------------------
+Part D
+--------------------------------------------
+
+Common Interview Questions (Must know) 
+1. What is an operating system, and what are its primary functions? 
+2. Explain the difference between process and thread. 
+3. What is virtual memory, and how does it work? 
+4. Describe the difference between multiprogramming, multitasking, and multiprocessing. 
+5. What is a file system, and what are its components? 
+6. What is a deadlock, and how can it be prevented? 
+7. Explain the difference between a kernel and a shell. 
+8. What is CPU scheduling, and why is it important? 
+9. How does a system call work? 
+10. What is the purpose of device drivers in an operating system? 
+11. Explain the role of the page table in virtual memory management. 
+12. What is thrashing, and how can it be avoided? 
+13. Describe the concept of a semaphore and its use in synchronization. 
+14. How does an operating system handle process synchronization? 
+15. What is the purpose of an interrupt in operating systems? 
+16. Explain the concept of a file descriptor. 
+17. How does a system recover from a system crash? 
+18. Describe the difference between a monolithic kernel and a microkernel. 
+19. What is the difference between internal and external fragmentation? 
+20. How does an operating system manage I/O operations? 
+21. Explain the difference between preemptive and non-preemptive scheduling. 
+22. What is round-robin scheduling, and how does it work? 
+23. Describe the priority scheduling algorithm. How is priority assigned to processes? 
+24. What is the shortest job next (SJN) scheduling algorithm, and when is it used? 
+25. Explain the concept of multilevel queue scheduling. 
+26. What is a process control block (PCB), and what information does it contain? 
+27. Describe the process state diagram and the transitions between different process states. 
+28. How does a process communicate with another process in an operating system? 
+29. What is process synchronization, and why is it important? 
+30. Explain the concept of a zombie process and how it is created. 
+31. Describe the difference between internal fragmentation and external fragmentation. 
+32. What is demand paging, and how does it improve memory management efficiency? 
+33. Explain the role of the page table in virtual memory management. 
+34. How does a memory management unit (MMU) work? 
+35. What is thrashing, and how can it be avoided in virtual memory systems? 
+36. What is a system call, and how does it facilitate communication between user programs and the 
+operating system? 
+37. Describe the difference between a monolithic kernel and a microkernel. 
+38. How does an operating system handle I/O operations? 
+39. Explain the concept of a race condition and how it can be prevented. 
+40. Describe the role of device drivers in an operating system. 
+41. What is a zombie process, and how does it occur? How can a zombie process be prevented? 
+42. Explain the concept of an orphan process. How does an operating system handle orphan 
+processes? 
+43. What is the relationship between a parent process and a child process in the context of process 
+management? 
+44. How does the fork() system call work in creating a new process in Unix-like operating systems? 
+45. Describe how a parent process can wait for a child process to finish execution. 
+46. What is the significance of the exit status of a child process in the wait() system call? 
+47. How can a parent process terminate a child process in Unix-like operating systems? 
+48. Explain the difference between a process group and a session in Unix-like operating systems. 
+49. Describe how the exec() family of functions is used to replace the current process image with a 
+new one. 
+50. What is the purpose of the waitpid() system call in process management? How does it differ from 
+wait()? 
+51. How does process termination occur in Unix-like operating systems? 
+52. What is the role of the long-term scheduler in the process scheduling hierarchy? How does it 
+influence the degree of multiprogramming in an operating system? 
+53.  How does the short-term scheduler differ from the long-term and medium-term schedulers in 
+terms of frequency of execution and the scope of its decisions? 
+54. Describe a scenario where the medium-term scheduler would be invoked and explain how it helps 
+manage system resources more efficiently. 
+
+----------------------------------        
+Part E
+----------------------------------
+1) Consider the following processes with arrival times and burst times:
+ | Process | Arrival Time | Burst Time |
+ |---------|--------------|------------|
+ | P1 | 0 | 5 |
+ | P2 | 1 | 3 |
+ | P3 | 2 | 6 |
+ Calculate the average waiting time using First-Come, First-Served (FCFS) scheduling. 
+ 
+| process | AT | CBT | CT | TAT | WT | RT |
+|    p1   | 0  |  5  | 5  |  5  |  0 | 0  |
+|    p2   | 1  |  3  | 8  |  7  |  4 | 5  |
+|    p3   | 2  |  6  | 14 |  12 |  6 | 8  |
+
+Average Waiting time - 0 + 5 + 8 = 10/3 = 3.33
+-------------------------------------------------------------------------
+2. Consider the following processes with arrival times and burst times:
+ | Process | Arrival Time | Burst Time |
+ |---------|--------------|------------|
+ | P1 | 0 | 3 |
+ | P2 | 1 | 5 |
+ | P3 | 2 | 1 |
+ | P4 | 3 | 4 |
+ Calculate the average turnaround time using Shortest Job First (SJF) scheduling
+
+| process | AT | CBT | CT | TAT | 
+|    p1   | 0  |  3  | 3  |  3  | 
+|    p2   | 1  |  5  | 13 |  12 |  
+|    p3   | 2  |  1  |  4 |   2 |  
+|    p4   | 3  |  4  | 8  |  5  |  
+
+Average TAT = 5.5
+------------------------------------------------------------------
+3. Consider the following processes with arrival times, burst times, and priorities (lower number
+indicates higher priority):
+ | Process | Arrival Time | Burst Time | Priority |
+ |---------|--------------|------------|----------|
+ | P1 | 0 | 6 | 3 |
+ | P2 | 1 | 4 | 1 |
+ | P3 | 2 | 7 | 4 |
+ | P4 | 3 | 2 | 2 |
+ Calculate the average waiting time using Priority Scheduling. 
+
+| process | AT | CBT | Priority | CT | TAT | WT | 
+|    p1   | 0  |  6  |     3    | 12 |  12 | 6  | 
+|    p2   | 1  |  4  |     1    |  7 |  6  | 2  | 
+|    p3   | 2  |  7  |     4    | 19 |  17 | 12 | 
+|    p4   | 3  |  2  |     2    |  5 |  2  |  0 |    
+
+Average Waiting time - 5
+-----------------------------------------------------------------
+4. Consider the following processes with arrival times and burst times, and the time quantum for
+Round Robin scheduling is 2 units:
+ | Process | Arrival Time | Burst Time |
+ |---------|--------------|------------|
+ | P1 | 0 | 4 |
+ | P2 | 1 | 5 |
+ | P3 | 2 | 2 |
+ | P4 | 3 | 3 |
+ Calculate the average turnaround time using Round Robin scheduling. 
+
+| process | AT | CBT | CT | TAT | 
+|    p1   | 0  |  4  |  8 |  8  | 
+|    p2   | 1  |  5  | 14 |  13 | 
+|    p3   | 2  |  2  |  6 |  4  |  
+|    p4   | 3  |  3  | 13 |  10 |  
+
+Average Waiting time = (8 + 13 + 4 + 10)/4 = 8.75
+----------------------------------------------------------------
+5. Consider a program that uses the fork() system call to create a child process. Initially, the parent
+process has a variable x with a value of 5. After forking, both the parent and child processes
+increment the value of x by 1.
+ What will be the final values of x in the parent and child processes after the fork() call? 
+
+After fok() call the final value of variable x is 6.
+---------------------------------------------------------------
+ 
+Submission Guidelines: 
+ Document each step of your solution and any challenges faced. 
+ Upload it on your GitHub repository 
+  
+Additional Tips: 
+ Experiment with different options and parameters of each command to explore their 
+functionalities. 
+ This assignment is tailored to align with interview expectations, CCEE standards, and industry 
+demands. 
+ If you complete this then your preparation will be skyrocketed.  
